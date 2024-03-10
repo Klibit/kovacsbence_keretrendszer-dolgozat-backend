@@ -13,7 +13,8 @@ class MonitorController extends Controller
      */
     public function index()
     {
-        return Monitor::all();
+        $monitors = monitor::all();
+        return monitors;
     }
 
     /**
@@ -21,7 +22,8 @@ class MonitorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $monitor = Monitor::create($request->all());
+        return $car;
     }
 
     /**
