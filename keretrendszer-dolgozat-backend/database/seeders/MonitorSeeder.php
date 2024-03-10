@@ -12,6 +12,6 @@ class MonitorSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Monitor::factory(10)->create();
     }
 }

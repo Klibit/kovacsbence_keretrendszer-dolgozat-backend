@@ -9,10 +9,10 @@ class Monitor extends Model
 {
     use HasFactory;
 
-    protected $fillable = 
+    /*protected $fillable = 
     [
      "Type",
      "Price",
      "Availability",  
-    ]
+    ]*/
 }
