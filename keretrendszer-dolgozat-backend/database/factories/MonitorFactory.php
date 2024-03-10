@@ -17,7 +17,7 @@ class MonitorFactory extends Factory
     public function definition(): array
     {
         return [
-            "Type" => fake()->words(),
+            "Type" => fake()->word(),
             "Price" => fake()->RandomNumber(5, true),
             "Availability" => fake()->boolean(),
         ];
