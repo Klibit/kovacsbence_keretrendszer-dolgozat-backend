@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Monitor extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "Type",
+        "Price",
+        "Availability"
+    ];
 }

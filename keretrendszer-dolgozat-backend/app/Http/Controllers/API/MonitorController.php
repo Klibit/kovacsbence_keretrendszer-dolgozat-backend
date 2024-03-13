@@ -24,6 +24,7 @@ class MonitorController extends Controller
     {
         $monitor = Monitor::create($request->all());
         return $car;
+
     }
 
     /**
@@ -31,7 +32,12 @@ class MonitorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $monitor = Monitor::find($id);
+        if (is_null($monitor)){
+            return response()->json(["message" => "Nem található monitor ezzel az azonosítóval: $id"],404);
+        }
+
+        return $monitor;
     }
 
     /**
@@ -39,7 +45,13 @@ class MonitorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $monitor = Monitor::find($id);
+        if (is_null($monitor)){
+            return response()->json(["message" => "Nem található monitor ezzel az azonosítóval: $id"],404);
+        }
+        $monitor->fill($request->all());
+        $monitor->save();
+        return $monitor;
     }
 
     /**
@@ -47,6 +59,11 @@ class MonitorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $monitor = Monitor::find($id);
+        if (is_null($monitor)){
+            return response()->json(["message" => "Nem található monitor ezzel az azonosítóval: $id"],404);
+        }
+        $monitor->delete();
+        return response()->noContent();
     }
 }
